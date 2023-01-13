@@ -1,0 +1,37 @@
+{% extends "blog/base.html" %}
+{% block content %}
+
+    <!--<div class=" mx-auto jumbotron">
+      <h1 class="display-4">Hello, world!</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>-->
+    {% for post in posts %}
+        <article class="media content-section border border-info" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+            <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}" alt="">
+            <div class="media-body">
+                <div class="article-metadata">
+                <a class="mr-2 text-dark" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+                <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            </div>
+                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+                <p class="article-content">{{ post.content }}</p>
+            </div>
+        </article>
+    {% endfor %}
+    <div class="container mb-3">
+        {% if posts.has_previous %}
+        <a type="button" class="btn btn-primary" href="?page=1">First</a>
+        <a type="button" class="btn btn-primary" href="?page={{posts.previous_page_number}}">Previous</a>
+        {% endif %}
+        <span class="font-weight-bold">page: {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+        {% if posts.has_next %}
+        <a type="button" class="btn btn-primary" href="?page={{posts.next_page_number}}">Next</a>
+        <a type="button" class="btn btn-primary" href="?page={{posts.paginator.num_pages}}">Last</a>
+        {% endif %}
+    </div>
+
+
+{% endblock content %}
