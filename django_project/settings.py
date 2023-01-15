@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "xml_json.apps.XmlJsonConfig",
     "crispy_forms",
     "users.apps.UsersConfig",
     "blog.apps.BlogConfig",
