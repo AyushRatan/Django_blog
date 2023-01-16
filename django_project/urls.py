@@ -36,6 +36,7 @@ urlpatterns = [
          auth_views.PasswordResetConfirmView.as_view(template_name="users/password_reset_confirm.html"),
          name='password_reset_confirm'),
     path("", include("blog.urls")),
+    path("xml-json/", include("xml_json.urls")),
 ]
 
 if settings.DEBUG:

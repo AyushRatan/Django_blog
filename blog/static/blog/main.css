@@ -1,5 +1,5 @@
 body {
-  background-color: #001514;
+  background-color: #023020;
   color: #333333;
   margin-top: 5rem;
 }
@@ -13,7 +13,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #001514;
+  background-color: #023020;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -81,4 +81,9 @@ a.article-title:hover {
 
 .account-heading {
   font-size: 2.5rem;
+}
+
+/* Navigation buttons */
+.navigation-buttons{
+    color: white;
 }

@@ -14,7 +14,7 @@
 </head>
 <body>
     <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <nav class="navbar navbar-expand-md navbar bg-steel fixed-top">
         <div class="container">
           <a class="navbar-brand mr-4 text-light" href="{% url 'blog-home' %}">Django Blog</a>
           <form class="form-inline my-2 my-lg-0" action="" method="GET">
@@ -28,7 +28,7 @@
               <div class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle bg-dark border-0" type="button" data-toggle="dropdown" aria-expanded="false">
+                      <button class="btn btn-secondary dropdown-toggle bg-steel border-0" type="button" data-toggle="dropdown" aria-expanded="false">
                         Hi, {{user}}
                       </button>
                       <div class="dropdown-menu">
@@ -37,14 +37,15 @@
                         <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
                       </div>
                     </div>
-
-
                 {% else %}
                     <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
                     <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                 {% endif %}
               </div>
           </div>
+            <div>
+                <a href="{% url 'upload-xml' %}">XML viewer</a>
+            </div>
         </div>
       </nav>
     </header>
